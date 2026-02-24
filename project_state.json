@@ -1,0 +1,320 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 15,
+  "summary": "Anime merchandise store website for Anime_Vibe_PK with dark JJK-themed design, neon blue highlights, and mobile-friendly layout for Pakistani anime fans",
+  "architectural_notes": [
+    "Dark background with neon blue highlights for JJK anime theme",
+    "Mobile-first responsive design targeting teens and anime fans",
+    "Grid layout for product display with image placeholders",
+    "Instagram-based pre-order system (no e-commerce checkout)",
+    "Contact: anime_vibe_pk@gmail.com, Instagram: anime_vibe_pk, WhatsApp: +92 3324566056",
+    "Authentication required for admin panel access (Internet Identity integration)",
+    "Pre-order buttons use Instagram direct DM link format: https://ig.me/m/anime_vibe_pk to open DM chat directly"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-homepage-with-dark-background-and-neon-blue-highlights-following-a-modern-anime-aesthetic-inspired-by-jujutsu-kaisen-jjk-theme-for-text-styling-and-visual-elements",
+      "title": "Create a homepage with dark background and neon blue highlights following a modern anime aesthetic inspired by Jujutsu Kaisen (JJK) theme for text styling and visual elements",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-site-logo-in-the-top-left-corner-of-the-header-that-displays-anime-vibe-pk-branding",
+      "title": "Add site logo in the top-left corner of the header that displays 'Anime_Vibe_PK' branding",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-instagram-link-button-in-the-top-right-corner-of-the-header-that-links-to-instagram-com-anime-vibe-pk",
+      "title": "Add Instagram link button in the top-right corner of the header that links to instagram.com/anime_vibe_pk",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-prominent-banner-on-the-homepage-displaying-the-text-anime-merch-pakistan-pre-orders-open",
+      "title": "Create a prominent banner on the homepage displaying the text 'Anime Merch Pakistan | Pre-Orders Open'",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-products-page-with-a-responsive-grid-layout-displaying-multiple-product-categories-pouches-keychains-stickers-posters-and-additional-anime-merchandise-products",
+      "title": "Create a Products page with a responsive grid layout displaying multiple product categories: pouches, keychains, stickers, posters, and additional anime merchandise products",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-image-placeholders-for-each-product-in-the-grid-with-clear-visual-indication-that-images-will-be-added-later",
+      "title": "Add image placeholders for each product in the grid with clear visual indication that images will be added later",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-pre-order-now-dm-on-instagram-button-to-each-product-that-links-to-instagram-direct-messages-for-anime-vibe-pk-account",
+      "title": "Add a 'Pre-Order Now → DM on Instagram' button to each product that links to Instagram direct messages for anime_vibe_pk account",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-about-section-with-the-text-your-favorite-anime-merch-in-pakistan-cod-available-nationwide-highlighting-cash-on-delivery-availability",
+      "title": "Create an About section with the text 'Your favorite anime merch in Pakistan, COD available nationwide.' highlighting cash-on-delivery availability",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-footer-containing-instagram-link-instagram-com-anime-vibe-pk-whatsapp-link-92-3324566056-and-email-contact-anime-vibe-pk-gmail-com",
+      "title": "Create a footer containing Instagram link (instagram.com/anime_vibe_pk), WhatsApp link (92+ 3324566056), and email contact (anime_vibe_pk@gmail.com)",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-entire-website-is-fully-responsive-and-mobile-friendly-with-optimized-layout-and-navigation-for-smartphone-users",
+      "title": "Ensure the entire website is fully responsive and mobile-friendly with optimized layout and navigation for smartphone users",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-the-site-to-be-visually-appealing-for-the-target-audience-of-teenagers-and-anime-fans-with-modern-engaging-aesthetics",
+      "title": "Design the site to be visually appealing for the target audience of teenagers and anime fans with modern, engaging aesthetics",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-whatsapp-link-and-phone-number-92-3324566056-from-the-footer-component-while-keeping-the-instagram-and-email-contact-links-intact",
+      "title": "Remove the WhatsApp link and phone number (92+ 3324566056) from the footer component while keeping the Instagram and email contact links intact",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-placeholder-image-for-the-jjk-theme-pouch-product-with-the-uploaded-jjk-themed-pouch-image-3c8e50aa6b3810d598ea8ec5f2b813f5-jpg-showing-characters-from-jujutsu-kaisen",
+      "title": "Replace the placeholder image for the 'JJK Theme Pouch' product with the uploaded JJK-themed pouch image (3c8e50aa6b3810d598ea8ec5f2b813f5.jpg) showing characters from Jujutsu Kaisen",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-placeholder-image-for-the-demon-slayer-theme-pouch-product-with-the-uploaded-demon-slayer-themed-pouch-image-327a80c118bf4feaa8702364a5017fa4-jpg-showing-multiple-colored-pouches-with-demon-slayer-patterns",
+      "title": "Replace the placeholder image for the 'Demon Slayer Theme Pouch' product with the uploaded Demon Slayer-themed pouch image (327a80c118bf4feaa8702364a5017fa4.jpg) showing multiple colored pouches with Demon Slayer patterns",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-placeholder-image-for-the-all-anime-characters-theme-pouch-product-with-the-uploaded-multi-anime-collage-image-585f1ded22dad1bdd1a9f13ced0b702b-jpg-featuring-various-popular-anime-series-including-death-note-attack-on-titan-my-hero-academia-and-others",
+      "title": "Replace the placeholder image for the 'All Anime Characters Theme Pouch' product with the uploaded multi-anime collage image (585f1ded22dad1bdd1a9f13ced0b702b.jpg) featuring various popular anime series including Death Note, Attack on Titan, My Hero Academia, and others",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-placeholder-image-for-the-chibi-demon-slayer-keychain-product-with-the-uploaded-demon-slayer-chibi-keychain-image-b1194f1e07cf7f6bb89056cf9f1eef1d-jpg-showing-chibi-style-characters-from-demon-slayer-anime",
+      "title": "Replace the placeholder image for the 'Chibi Demon Slayer Keychain' product with the uploaded Demon Slayer chibi keychain image (b1194f1e07cf7f6bb89056cf9f1eef1d.jpg) showing chibi-style characters from Demon Slayer anime",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-placeholder-image-for-the-one-piece-keychain-product-with-the-uploaded-one-piece-keychain-image-fcee77a403ba41775fdc8b85478df166-jpg-showing-one-piece-characters-in-glitter-filled-acrylic-keychain-format",
+      "title": "Replace the placeholder image for the 'One Piece Keychain' product with the uploaded One Piece keychain image (fcee77a403ba41775fdc8b85478df166.jpg) showing One Piece characters in glitter-filled acrylic keychain format",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-placeholder-image-for-the-gojo-keychain-product-with-the-uploaded-gojo-keychain-image-caa641eda83b7207075a7845a9ae0aff-jpg-showing-satoru-gojo-from-jujutsu-kaisen-in-black-and-white-acrylic-keychain-format",
+      "title": "Replace the placeholder image for the 'Gojo Keychain' product with the uploaded Gojo keychain image (caa641eda83b7207075a7845a9ae0aff.jpg) showing Satoru Gojo from Jujutsu Kaisen in black and white acrylic keychain format",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-placeholder-image-for-the-naruto-keychain-product-with-the-uploaded-naruto-keychain-image-0ed10b831c72d24125ca1033d566370b-jpg-showing-3d-figurine-style-naruto-characters-on-circular-bases",
+      "title": "Replace the placeholder image for the 'Naruto Keychain' product with the uploaded Naruto keychain image (0ed10b831c72d24125ca1033d566370b.jpg) showing 3D figurine-style Naruto characters on circular bases",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-admin-interface-in-the-frontend-with-a-form-to-add-new-products-including-fields-for-product-name-category-selection-dropdown-price-and-image-url",
+      "title": "Create an admin interface in the frontend with a form to add new products including fields for product name, category selection dropdown, price, and image URL",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-productspage-to-fetch-products-dynamically-from-the-backend-instead-of-using-hardcoded-static-data",
+      "title": "Update ProductsPage to fetch products dynamically from the backend instead of using hardcoded static data",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-category-filter-navigation-to-productspage-allowing-users-to-view-all-products-or-filter-by-specific-category-pouches-keychains-stickers-posters-other",
+      "title": "Add category filter navigation to ProductsPage allowing users to view all products or filter by specific category (pouches, keychains, stickers, posters, other)",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-each-product-card-displays-the-pre-order-now-dm-on-instagram-button-that-links-to-instagram-direct-messages-for-the-anime-vibe-pk-account",
+      "title": "Ensure each product card displays the 'Pre-Order Now → DM on Instagram' button that links to Instagram direct messages for the anime_vibe_pk account",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-internet-identity-authentication-for-the-admin-panel-so-only-authenticated-users-can-access-the-product-creation-interface",
+      "title": "Implement Internet Identity authentication for the admin panel so only authenticated users can access the product creation interface",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-login-logout-ui-component-in-the-admin-panel-that-displays-the-authentication-status-and-provides-login-logout-actions-using-internet-identity",
+      "title": "Add a login/logout UI component in the admin panel that displays the authentication status and provides login/logout actions using Internet Identity",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-pre-order-now-dm-on-instagram-button-in-productcard-tsx-to-link-directly-to-the-instagram-dm-conversation-for-anime-vibe-pk-using-the-url-https-ig-me-m-anime-vibe-pk-instead-of-the-profile-page-so-tapping-the-button-instantly-opens-the-dm-chat",
+      "title": "Update the 'Pre-Order Now → DM on Instagram' button in ProductCard.tsx to link directly to the Instagram DM conversation for anime_vibe_pk using the URL https://ig.me/m/anime_vibe_pk instead of the profile page, so tapping the button instantly opens the DM chat.",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Homepage with logo, Instagram link, and banner",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Products grid page with placeholders for pouches, keychains, stickers, posters and more",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Pre-order buttons linking to Instagram DM for each product",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "About section highlighting COD availability nationwide in Pakistan",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Footer with Instagram, WhatsApp links and contact information",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Allow adding multiple products within categories with DM pre-order option",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Create a backend data model for products with fields: id, name, category, price, imageUrl, and createdAt timestamp",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement backend functions to create new products with category assignment (pouches, keychains, stickers, posters, and other merchandise categories)",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Implement backend functions to retrieve all products and filter products by category",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Create backend migration logic to preserve existing product data during canister upgrades using stable storage",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Add authentication to admin panel so only authorized users can access it",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Create documentation in a README.md file explaining how to publish the app to the Internet Computer network and make it publicly accessible with a production URL",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Update 'DM on Instagram' pre-order buttons to directly open Instagram DM chat instead of just the profile page",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Anime_Vibe_PK",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

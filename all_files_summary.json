@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Motoko actor defining a Product type with categories and CRUD operations (create, getAll, getByCategory, getById) backed by an in-memory Map, with blob storage mixin included.",
+  "feature_evidence.json": "Feature evidence report confirming that the Instagram DM button in ProductCard.tsx was updated to use https://ig.me/m/anime_vibe_pk, with high confidence and linked to test REQ-31.",
+  "frontend-file-summaries.txt": "JSON map of frontend source files to short descriptions, serving as a pre-generated summary reference for all frontend components, pages, hooks, and config files.",
+  "frontend/index.css": "Tailwind base CSS file defining CSS custom properties for light and dark theme color tokens (background, foreground, card, sidebar, chart colors, etc.).",
+  "frontend/index.html": "Minimal HTML entry point for the Vite/React app, mounting the React root div and loading the main.tsx module script.",
+  "frontend/src/App.tsx": "Root React component that sets up React Query with a 5-minute stale time and composes the full page layout: Header, HeroBanner, AboutSection, AdminPage, ProductsPage, Footer, and Toaster.",
+  "frontend/src/components/AboutSection.tsx": "Static section component displaying three feature cards (Authentic Merch, Nationwide Delivery, Cash on Delivery) with neon blue icons and a headline about COD availability.",
+  "frontend/src/components/AuthButton.tsx": "Internet Identity login/logout button that shows a shortened principal when authenticated and a loading spinner during the login process.",
+  "frontend/src/components/Footer.tsx": "Footer with Instagram and email contact links, copyright notice, and a caffeine.ai attribution link with UTM tracking based on the current hostname.",
+  "frontend/src/components/Header.tsx": "Sticky header displaying the Anime_Vibe_PK logo and an Instagram link button with neon blue styling.",
+  "frontend/src/components/HeroBanner.tsx": "Hero section with a background image overlay, animated neon blue 'Anime Merch Pakistan' heading, and a pulsing 'Pre-Orders Open' badge.",
+  "frontend/src/components/ProductCard.tsx": "Product card displaying image, category badge, name, PKR price, and a pre-order button that links directly to the Instagram DM chat at https://ig.me/m/anime_vibe_pk.",
+  "frontend/src/hooks/useActor.ts": "React Query hook that creates and caches an authenticated or anonymous ICP actor based on the current Internet Identity, invalidating dependent queries whenever the actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and hook for Internet Identity authentication on the ICP platform, managing login/logout state, identity persistence, and AuthClient creation with configurable options.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for creating products (mutation) and fetching all products or products by category (queries) via the backend actor.",
+  "frontend/src/index.css": "Global stylesheet that sets up Tailwind CSS layers, CSS custom properties for a dark neon-blue theme, and utility classes for neon glow effects and colors.",
+  "frontend/src/main.tsx": "Application entry point that renders the React app wrapped with QueryClientProvider and InternetIdentityProvider.",
+  "frontend/src/pages/AdminPage.tsx": "Admin page component that provides an authenticated form for creating new products, including image upload with progress tracking and category selection.",
+  "frontend/src/pages/ProductsPage.tsx": "Products listing page that displays merchandise with category filter tabs, loading skeletons, and product counts fetched via React Query hooks.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the default theme with oklch-based CSS variable colors, neon-blue custom colors, custom border radii, Inter font family, and accordion animations.",
+  "project_state.json": "Tracks the project state (version 15) for the Anime_Vibe_PK merchandise store, including architectural notes, existing features, known issues, and contact/social media details for a dark JJK-themed Pakistani anime merch site."
+}

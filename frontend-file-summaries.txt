@@ -1,0 +1,15 @@
+{
+  "frontend/src/App.tsx": "Main application component wrapped with QueryClientProvider and Toaster, composing Header, HeroBanner, AboutSection, AdminPage, ProductsPage, and Footer in a single-page layout.",
+  "frontend/src/components/Header.tsx": "Sticky header component with Anime_Vibe_PK logo on the left and Instagram link button with neon blue styling on the right.",
+  "frontend/src/components/HeroBanner.tsx": "Hero banner section with background image, animated \"Anime Merch Pakistan | Pre-Orders Open\" text with neon blue glow effects and pulsing indicator.",
+  "frontend/src/components/AboutSection.tsx": "About section highlighting COD availability nationwide with three feature cards (Authentic Merch, Nationwide Delivery, Cash on Delivery) using icons and neon blue accents.",
+  "frontend/src/pages/ProductsPage.tsx": "Products page with dynamic data fetching from backend, category filter navigation with product counts, loading states using skeleton components, and empty state messaging.",
+  "frontend/src/components/ProductCard.tsx": "Product card component displaying product image, category badge, name, price in PKR, and a pre-order button that links directly to the Instagram DM conversation via https://ig.me/m/anime_vibe_pk.",
+  "frontend/src/components/Footer.tsx": "Footer component with contact links (Instagram and email only), copyright notice, and Caffeine.ai attribution with UTM tracking.",
+  "frontend/src/index.css": "Global styles with dark JJK-themed color scheme, neon blue custom colors, glow effects (shadow-neon variants), pulse-glow animation, and mobile-friendly base styles.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with neon-blue color tokens, Inter font family, and custom utilities for the dark anime aesthetic.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for product operations including useCreateProduct mutation, useGetAllProducts query, and useGetProductsByCategory query with proper cache invalidation.",
+  "frontend/src/pages/AdminPage.tsx": "Admin panel component with Internet Identity authentication gate that requires login before displaying the product creation form, showing a secure login prompt for unauthenticated users and the full product management interface for authenticated admins.",
+  "frontend/src/components/AuthButton.tsx": "Authentication button component that displays login/logout functionality using Internet Identity, showing the user's principal when authenticated and providing visual feedback during the login process.",
+  "README.md": "Comprehensive deployment documentation explaining how to publish the Anime Vibe PK application to the Internet Computer mainnet, including prerequisites, step-by-step deployment instructions, public URL access, admin authentication details, and troubleshooting guidance."
+}

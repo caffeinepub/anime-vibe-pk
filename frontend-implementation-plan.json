@@ -1,0 +1,23 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update pre-order button to open Instagram DM directly",
+  "requirements": [
+    {
+      "id": "REQ-31",
+      "summary": "Update the pre-order button in ProductCard.tsx to link directly to Instagram DM using https://ig.me/m/anime_vibe_pk",
+      "acceptanceCriteria": [
+        "Clicking the pre-order button on any product card opens https://ig.me/m/anime_vibe_pk in a new tab",
+        "The button label remains 'Pre-Order Now → DM on Instagram' or equivalent",
+        "The link opens Instagram DM directly rather than the profile page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Update the pre-order button's href attribute from the Instagram profile URL to https://ig.me/m/anime_vibe_pk to open the DM conversation directly. Ensure the button retains its existing label, styling, target='_blank', and rel='noopener noreferrer' attributes."
+        }
+      ]
+    }
+  ]
+}

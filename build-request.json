@@ -1,0 +1,39 @@
+{
+  "kind": "build_request",
+  "title": "Update pre-order button to open Instagram DM directly",
+  "projectName": "Anime Vibe PK",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-31",
+      "text": "Update the 'Pre-Order Now → DM on Instagram' button in ProductCard.tsx to link directly to the Instagram DM conversation for anime_vibe_pk using the URL https://ig.me/m/anime_vibe_pk instead of the profile page, so tapping the button instantly opens the DM chat.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8"
+        ],
+        "quotes": [
+          "Make it so when Dm Me To Order it instantly takes you to dm"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking the pre-order button on any product card opens https://ig.me/m/anime_vibe_pk in a new tab",
+        "The button label remains 'Pre-Order Now → DM on Instagram' or equivalent",
+        "The link opens Instagram DM directly rather than the profile page"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not change the button label or visual styling",
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui"
+  ],
+  "nonGoals": [
+    "Changing any other navigation or link behavior on the site",
+    "Adding new product fields or backend changes",
+    "Modifying the admin panel"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
