@@ -1,21 +1,34 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update pre-order button to open Instagram DM directly",
+  "title": "Change all product image displays to square 1:1 aspect ratio",
   "requirements": [
     {
-      "id": "REQ-31",
-      "summary": "Update the pre-order button in ProductCard.tsx to link directly to Instagram DM using https://ig.me/m/anime_vibe_pk",
+      "id": "REQ-56",
+      "summary": "Update all product image displays to use square 1:1 aspect ratio instead of 4:5",
       "acceptanceCriteria": [
-        "Clicking the pre-order button on any product card opens https://ig.me/m/anime_vibe_pk in a new tab",
-        "The button label remains 'Pre-Order Now → DM on Instagram' or equivalent",
-        "The link opens Instagram DM directly rather than the profile page"
+        "ProductCard.tsx renders product images with aspect-ratio: 1/1 and object-fit: cover",
+        "PhotoGallery.tsx renders the primary large image with aspect-ratio: 1/1 and object-fit: cover",
+        "PhotoGallery.tsx thumbnail strip images use aspect-ratio: 1/1 and object-fit: cover",
+        "ProductDetailModal.tsx renders product images with aspect-ratio: 1/1 and object-fit: cover",
+        "No product image container uses the old 4:5 ratio anywhere on the site",
+        "Images fill their containers without distortion on both mobile and desktop"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/ProductCard.tsx",
           "operation": "modify",
-          "description": "Update the pre-order button's href attribute from the Instagram profile URL to https://ig.me/m/anime_vibe_pk to open the DM conversation directly. Ensure the button retains its existing label, styling, target='_blank', and rel='noopener noreferrer' attributes."
+          "description": "Update the product image container to use aspect-ratio: 1/1 and object-fit: cover instead of the current 4:5 ratio. Modify the div wrapping the img element to apply the square aspect ratio styling while maintaining responsive behavior on both mobile and desktop."
+        },
+        {
+          "path": "frontend/src/components/PhotoGallery.tsx",
+          "operation": "modify",
+          "description": "Update both the primary large image display and the thumbnail strip to use aspect-ratio: 1/1 and object-fit: cover. Replace the existing 4:5 ratio with 1:1 for the main photo container and ensure all thumbnails in the strip also render as squares."
+        },
+        {
+          "path": "frontend/src/components/ProductDetailModal.tsx",
+          "operation": "modify",
+          "description": "Update the product image display within the modal to use aspect-ratio: 1/1 and object-fit: cover. Ensure the PhotoGallery component rendered inside the modal inherits the square aspect ratio and displays correctly on both mobile and desktop viewports."
         }
       ]
     }

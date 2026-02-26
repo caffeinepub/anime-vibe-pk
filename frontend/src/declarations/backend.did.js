@@ -19,6 +19,19 @@ export const _CaffeineStorageRefillResult = IDL.Record({
   'success' : IDL.Opt(IDL.Bool),
   'topped_up_amount' : IDL.Opt(IDL.Nat),
 });
+export const Review = IDL.Record({
+  'id' : IDL.Nat,
+  'createdAt' : IDL.Int,
+  'productId' : IDL.Nat,
+  'reviewerName' : IDL.Text,
+  'comment' : IDL.Text,
+  'rating' : IDL.Nat,
+});
+export const UserRole = IDL.Variant({
+  'admin' : IDL.Null,
+  'user' : IDL.Null,
+  'guest' : IDL.Null,
+});
 export const ProductCategory = IDL.Variant({
   'others' : IDL.Null,
   'sticker' : IDL.Null,
@@ -26,16 +39,25 @@ export const ProductCategory = IDL.Variant({
   'keychain' : IDL.Null,
   'poster' : IDL.Null,
 });
-export const ExternalBlob = IDL.Vec(IDL.Nat8);
-export const Time = IDL.Int;
+export const Gender = IDL.Variant({
+  'female' : IDL.Null,
+  'male' : IDL.Null,
+  'unisex' : IDL.Null,
+});
 export const Product = IDL.Record({
   'id' : IDL.Text,
   'name' : IDL.Text,
-  'createdAt' : Time,
+  'createdAt' : IDL.Int,
+  'description' : IDL.Text,
+  'sizes' : IDL.Vec(IDL.Text),
+  'imageUrl' : IDL.Text,
+  'gender' : Gender,
   'category' : ProductCategory,
-  'image' : ExternalBlob,
+  'colors' : IDL.Vec(IDL.Text),
   'price' : IDL.Nat,
+  'photos' : IDL.Vec(IDL.Text),
 });
+export const UserProfile = IDL.Record({ 'name' : IDL.Text });
 
 export const idlService = IDL.Service({
   '_caffeineStorageBlobIsLive' : IDL.Func(
@@ -64,18 +86,44 @@ export const idlService = IDL.Service({
       [],
     ),
   '_caffeineStorageUpdateGatewayPrincipals' : IDL.Func([], [], []),
+  '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+  'addReview' : IDL.Func([IDL.Nat, IDL.Text, IDL.Nat, IDL.Text], [Review], []),
+  'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
   'createProduct' : IDL.Func(
-      [IDL.Text, IDL.Text, ProductCategory, IDL.Nat, ExternalBlob],
+      [
+        IDL.Text,
+        IDL.Text,
+        IDL.Text,
+        ProductCategory,
+        IDL.Nat,
+        IDL.Vec(IDL.Text),
+        IDL.Text,
+        IDL.Vec(IDL.Text),
+        IDL.Vec(IDL.Text),
+        Gender,
+      ],
       [Product],
       [],
     ),
+  'deleteAllProducts' : IDL.Func([], [], []),
+  'deleteProduct' : IDL.Func([IDL.Text], [IDL.Bool], []),
   'getAllProducts' : IDL.Func([], [IDL.Vec(Product)], ['query']),
+  'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
+  'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
   'getProduct' : IDL.Func([IDL.Text], [IDL.Opt(Product)], ['query']),
   'getProductsByCategory' : IDL.Func(
       [ProductCategory],
       [IDL.Vec(Product)],
       ['query'],
     ),
+  'getReviewsByProduct' : IDL.Func([IDL.Nat], [IDL.Vec(Review)], ['query']),
+  'getUserProfile' : IDL.Func(
+      [IDL.Principal],
+      [IDL.Opt(UserProfile)],
+      ['query'],
+    ),
+  'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+  'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
 });
 
 export const idlInitArgs = [];
@@ -92,6 +140,19 @@ export const idlFactory = ({ IDL }) => {
     'success' : IDL.Opt(IDL.Bool),
     'topped_up_amount' : IDL.Opt(IDL.Nat),
   });
+  const Review = IDL.Record({
+    'id' : IDL.Nat,
+    'createdAt' : IDL.Int,
+    'productId' : IDL.Nat,
+    'reviewerName' : IDL.Text,
+    'comment' : IDL.Text,
+    'rating' : IDL.Nat,
+  });
+  const UserRole = IDL.Variant({
+    'admin' : IDL.Null,
+    'user' : IDL.Null,
+    'guest' : IDL.Null,
+  });
   const ProductCategory = IDL.Variant({
     'others' : IDL.Null,
     'sticker' : IDL.Null,
@@ -99,16 +160,25 @@ export const idlFactory = ({ IDL }) => {
     'keychain' : IDL.Null,
     'poster' : IDL.Null,
   });
-  const ExternalBlob = IDL.Vec(IDL.Nat8);
-  const Time = IDL.Int;
+  const Gender = IDL.Variant({
+    'female' : IDL.Null,
+    'male' : IDL.Null,
+    'unisex' : IDL.Null,
+  });
   const Product = IDL.Record({
     'id' : IDL.Text,
     'name' : IDL.Text,
-    'createdAt' : Time,
+    'createdAt' : IDL.Int,
+    'description' : IDL.Text,
+    'sizes' : IDL.Vec(IDL.Text),
+    'imageUrl' : IDL.Text,
+    'gender' : Gender,
     'category' : ProductCategory,
-    'image' : ExternalBlob,
+    'colors' : IDL.Vec(IDL.Text),
     'price' : IDL.Nat,
+    'photos' : IDL.Vec(IDL.Text),
   });
+  const UserProfile = IDL.Record({ 'name' : IDL.Text });
   
   return IDL.Service({
     '_caffeineStorageBlobIsLive' : IDL.Func(
@@ -137,18 +207,48 @@ export const idlFactory = ({ IDL }) => {
         [],
       ),
     '_caffeineStorageUpdateGatewayPrincipals' : IDL.Func([], [], []),
+    '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+    'addReview' : IDL.Func(
+        [IDL.Nat, IDL.Text, IDL.Nat, IDL.Text],
+        [Review],
+        [],
+      ),
+    'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
     'createProduct' : IDL.Func(
-        [IDL.Text, IDL.Text, ProductCategory, IDL.Nat, ExternalBlob],
+        [
+          IDL.Text,
+          IDL.Text,
+          IDL.Text,
+          ProductCategory,
+          IDL.Nat,
+          IDL.Vec(IDL.Text),
+          IDL.Text,
+          IDL.Vec(IDL.Text),
+          IDL.Vec(IDL.Text),
+          Gender,
+        ],
         [Product],
         [],
       ),
+    'deleteAllProducts' : IDL.Func([], [], []),
+    'deleteProduct' : IDL.Func([IDL.Text], [IDL.Bool], []),
     'getAllProducts' : IDL.Func([], [IDL.Vec(Product)], ['query']),
+    'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
+    'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
     'getProduct' : IDL.Func([IDL.Text], [IDL.Opt(Product)], ['query']),
     'getProductsByCategory' : IDL.Func(
         [ProductCategory],
         [IDL.Vec(Product)],
         ['query'],
       ),
+    'getReviewsByProduct' : IDL.Func([IDL.Nat], [IDL.Vec(Review)], ['query']),
+    'getUserProfile' : IDL.Func(
+        [IDL.Principal],
+        [IDL.Opt(UserProfile)],
+        ['query'],
+      ),
+    'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+    'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
   });
 };
 

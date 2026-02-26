@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -41,6 +43,11 @@
         /* Neon Blue Theme Colors */
         --neon-blue: 0.65 0.25 240;
         --neon-blue-bright: 0.75 0.28 240;
+
+        /* Female / Waifu Theme Colors */
+        --waifu-pink: 0.72 0.22 350;
+        --waifu-pink-bright: 0.80 0.25 350;
+        --waifu-purple: 0.60 0.20 300;
     }
 
     .dark {
@@ -80,6 +87,11 @@
         /* Neon Blue Theme Colors */
         --neon-blue: 0.65 0.25 240;
         --neon-blue-bright: 0.75 0.28 240;
+
+        /* Female / Waifu Theme Colors */
+        --waifu-pink: 0.72 0.22 350;
+        --waifu-pink-bright: 0.80 0.25 350;
+        --waifu-purple: 0.60 0.20 300;
     }
 
     * {
@@ -138,6 +150,34 @@
                     0 0 60px oklch(var(--neon-blue) / 0.4),
                     0 0 90px oklch(var(--neon-blue) / 0.2);
     }
+
+    /* Waifu / Female Theme Utilities */
+    .text-waifu-pink {
+        color: oklch(var(--waifu-pink));
+    }
+
+    .bg-waifu-pink {
+        background-color: oklch(var(--waifu-pink));
+    }
+
+    .border-waifu-pink {
+        border-color: oklch(var(--waifu-pink));
+    }
+
+    .shadow-waifu {
+        box-shadow: 0 0 20px oklch(var(--waifu-pink) / 0.5),
+                    0 0 40px oklch(var(--waifu-pink) / 0.3);
+    }
+
+    .shadow-waifu-sm {
+        box-shadow: 0 0 10px oklch(var(--waifu-pink) / 0.4),
+                    0 0 20px oklch(var(--waifu-pink) / 0.2);
+    }
+
+    /* Waifu font */
+    .font-waifu {
+        font-family: 'Nunito', 'Pacifico', cursive, sans-serif;
+    }
     
     /* Animations */
     @keyframes pulse-glow {
@@ -155,6 +195,55 @@
     
     .animate-pulse-glow {
         animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    /* Sakura petal fall animation */
+    @keyframes sakura-fall {
+        0% {
+            transform: translateY(-60px) rotate(0deg) scale(1);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 0.8;
+        }
+        100% {
+            transform: translateY(110vh) rotate(720deg) scale(0.6);
+            opacity: 0;
+        }
+    }
+
+    .animate-sakura-fall {
+        animation: sakura-fall linear forwards;
+    }
+
+    /* Gentle bounce for waifu header emoji */
+    @keyframes bounce-gentle {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+    }
+
+    .animate-bounce-gentle {
+        animation: bounce-gentle 2s ease-in-out infinite;
+    }
+
+    /* Pink pulse glow for waifu theme */
+    @keyframes pulse-glow-pink {
+        0%, 100% {
+            text-shadow: 0 0 10px rgba(236, 72, 153, 0.8),
+                         0 0 20px rgba(236, 72, 153, 0.5);
+        }
+        50% {
+            text-shadow: 0 0 20px rgba(236, 72, 153, 1),
+                         0 0 40px rgba(236, 72, 153, 0.7),
+                         0 0 60px rgba(168, 85, 247, 0.4);
+        }
+    }
+
+    .animate-pulse-glow-pink {
+        animation: pulse-glow-pink 2s ease-in-out infinite;
     }
     
     /* Smooth scrolling */

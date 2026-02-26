@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 15,
+  "projectStateVersion": 27,
   "summary": "Anime merchandise store website for Anime_Vibe_PK with dark JJK-themed design, neon blue highlights, and mobile-friendly layout for Pakistani anime fans",
   "architectural_notes": [
     "Dark background with neon blue highlights for JJK anime theme",
@@ -9,7 +9,10 @@
     "Instagram-based pre-order system (no e-commerce checkout)",
     "Contact: anime_vibe_pk@gmail.com, Instagram: anime_vibe_pk, WhatsApp: +92 3324566056",
     "Authentication required for admin panel access (Internet Identity integration)",
-    "Pre-order buttons use Instagram direct DM link format: https://ig.me/m/anime_vibe_pk to open DM chat directly"
+    "Pre-order buttons use Instagram direct DM link format: https://ig.me/m/anime_vibe_pk to open DM chat directly",
+    "Admin panel supports password-based access in addition to Internet Identity",
+    "Products support size and color variants; admin can configure available options per product",
+    "Products can be tagged with gender (male/female) for separate browsing sections"
   ],
   "known_issues": [],
   "isFixRequest": false,
@@ -221,6 +224,158 @@
         "REQ-31"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-password-gate-to-the-adminpage-so-that-before-the-product-creation-form-is-shown-the-user-must-enter-the-password-jujutsukaisenphantomparadehaha777-if-the-password-is-correct-the-admin-interface-is-unlocked-for-the-session-if-incorrect-display-an-error-message-the-password-check-must-happen-entirely-on-the-frontend-no-backend-changes-needed-internet-identity-login-can-remain-as-an-additional-layer-but-the-password-prompt-should-appear-first-or-alongside-it",
+      "title": "Add a password gate to the AdminPage so that before the product creation form is shown, the user must enter the password 'Jujutsukaisenphantomparadehaha777'. If the password is correct, the admin interface is unlocked for the session. If incorrect, display an error message. The password check must happen entirely on the frontend (no backend changes needed). Internet Identity login can remain as an additional layer but the password prompt should appear first or alongside it.",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-adminpage-product-creation-form-to-include-a-multi-value-sizes-input-allowing-admin-to-type-and-add-multiple-size-options-such-as-s-m-l-xl-xxl-as-tags-chips-a-multi-value-colors-input-allowing-admin-to-type-and-add-multiple-color-options-as-tags-chips-and-a-gender-dropdown-with-options-unisex-male-female-these-fields-should-be-submitted-along-with-the-existing-product-fields-when-creating-a-product",
+      "title": "Update the AdminPage product creation form to include: a multi-value sizes input (allowing admin to type and add multiple size options such as S, M, L, XL, XXL as tags/chips), a multi-value colors input (allowing admin to type and add multiple color options as tags/chips), and a gender dropdown with options: Unisex, Male, Female. These fields should be submitted along with the existing product fields when creating a product.",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-productcard-tsx-to-display-available-sizes-and-colors-when-a-product-has-them-show-size-options-as-selectable-buttons-pills-and-color-options-as-selectable-color-swatches-or-labeled-buttons-the-selected-size-and-color-should-be-visually-highlighted-the-pre-order-now-dm-on-instagram-button-should-remain-and-open-https-ig-me-m-anime-vibe-pk",
+      "title": "Update ProductCard.tsx to display available sizes and colors when a product has them. Show size options as selectable buttons/pills and color options as selectable color swatches or labeled buttons. The selected size and color should be visually highlighted. The 'Pre-Order Now → DM on Instagram' button should remain and open https://ig.me/m/anime_vibe_pk.",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-productspage-tsx-to-add-gender-based-section-navigation-add-a-top-level-gender-filter-row-with-tabs-or-buttons-all-male-female-when-male-is-selected-show-only-products-with-gender-male-or-gender-unisex-when-female-is-selected-show-only-products-with-gender-female-or-gender-unisex-when-all-is-selected-show-all-products-regardless-of-gender-the-existing-category-filter-pouches-keychains-stickers-posters-other-should-remain-and-work-in-combination-with-the-gender-filter",
+      "title": "Update ProductsPage.tsx to add gender-based section navigation. Add a top-level gender filter row with tabs or buttons: 'All', 'Male', 'Female'. When 'Male' is selected, show only products with gender='male' or gender='unisex'. When 'Female' is selected, show only products with gender='female' or gender='unisex'. When 'All' is selected, show all products regardless of gender. The existing category filter (pouches, keychains, stickers, posters, other) should remain and work in combination with the gender filter.",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-usequeries-ts-to-pass-the-new-sizes-colors-and-gender-fields-in-the-createproduct-mutation-ensure-the-product-query-results-include-the-new-fields-so-productcard-and-productspage-can-read-them",
+      "title": "Update useQueries.ts to pass the new sizes, colors, and gender fields in the createProduct mutation. Ensure the product query results include the new fields so ProductCard and ProductsPage can read them.",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-the-female-gender-filter-is-active-on-productspage-apply-a-cute-anime-waifu-girly-visual-theme-switch-the-page-background-to-soft-pastel-pinks-and-purples-e-g-rose-lavender-gradients-replace-neon-blue-accents-with-pink-magenta-glows-use-a-flowing-cursive-or-rounded-font-for-the-section-heading-and-play-an-entrance-animation-e-g-floating-sakura-petals-or-sparkle-burst-on-the-product-grid-when-the-female-tab-is-first-selected-when-male-is-selected-revert-to-the-existing-dark-jjk-neon-blue-cool-theme-with-blue-glow-accents-when-all-is-selected-keep-the-existing-default-dark-theme-unchanged",
+      "title": "When the 'Female' gender filter is active on ProductsPage, apply a cute anime waifu girly visual theme: switch the page background to soft pastel pinks and purples (e.g. rose/lavender gradients), replace neon-blue accents with pink/magenta glows, use a flowing cursive or rounded font for the section heading, and play an entrance animation (e.g. floating sakura petals or sparkle burst) on the product grid when the Female tab is first selected. When 'Male' is selected, revert to the existing dark JJK neon-blue cool theme with blue glow accents. When 'All' is selected, keep the existing default dark theme unchanged.",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-adminpage-product-creation-form-to-include-a-description-textarea-field-the-description-value-must-be-passed-along-with-other-product-fields-when-submitting-the-create-product-mutation",
+      "title": "Update the AdminPage product creation form to include a 'Description' textarea field. The description value must be passed along with other product fields when submitting the create-product mutation.",
+      "reqIds": [
+        "REQ-40"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-usequeries-ts-to-include-the-description-field-in-the-createproduct-mutation-and-ensure-getallproducts-query-results-expose-the-description-field-so-other-components-can-consume-it",
+      "title": "Update useQueries.ts to include the 'description' field in the createProduct mutation and ensure getAllProducts query results expose the description field so other components can consume it.",
+      "reqIds": [
+        "REQ-41"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-a-user-clicks-a-product-card-open-a-full-screen-or-centered-modal-drawer-showing-the-product-s-full-details-name-category-price-gender-sizes-colors-description-and-the-image-gallery-the-modal-must-have-a-close-button-and-be-dismissible-by-clicking-the-backdrop",
+      "title": "When a user clicks a product card, open a full-screen or centered modal/drawer showing the product's full details: name, category, price, gender, sizes, colors, description, and the image gallery. The modal must have a close button and be dismissible by clicking the backdrop.",
+      "reqIds": [
+        "REQ-42"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-product-detail-modal-req-42-display-the-customer-reviews-section-below-the-product-details-show-each-review-with-reviewer-name-star-rating-1-5-filled-empty-stars-comment-and-date-show-the-average-rating-and-total-review-count-at-the-top-of-the-reviews-section-below-the-reviews-list-include-a-write-a-review-form-with-fields-your-name-rating-star-selector-and-comment-submitting-the-form-calls-the-addreview-backend-function-there-must-be-no-edit-or-delete-controls-for-reviews",
+      "title": "In the product detail modal (REQ-42), display the customer reviews section below the product details. Show each review with reviewer name, star rating (1–5 filled/empty stars), comment, and date. Show the average rating and total review count at the top of the reviews section. Below the reviews list, include a 'Write a Review' form with fields: Your Name, Rating (star selector), and Comment. Submitting the form calls the addReview backend function. There must be no edit or delete controls for reviews.",
+      "reqIds": [
+        "REQ-44"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-adminpage-product-creation-form-to-replace-the-single-image-url-input-with-a-multi-photo-url-input-allow-admin-to-add-multiple-photo-urls-as-tags-chips-same-pattern-as-sizes-colors-inputs-the-first-added-url-is-the-primary-thumbnail-image-all-photo-urls-are-sent-in-the-photos-array-when-creating-a-product",
+      "title": "Update the AdminPage product creation form to replace the single image URL input with a multi-photo URL input: allow admin to add multiple photo URLs as tags/chips (same pattern as sizes/colors inputs). The first added URL is the primary/thumbnail image. All photo URLs are sent in the photos array when creating a product.",
+      "reqIds": [
+        "REQ-46"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-usequeries-ts-to-pass-the-photos-array-in-the-createproduct-mutation-and-ensure-getallproducts-results-expose-the-photos-field",
+      "title": "Update useQueries.ts to pass the photos array in the createProduct mutation and ensure getAllProducts results expose the photos field.",
+      "reqIds": [
+        "REQ-47"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-inside-the-product-detail-modal-req-42-implement-a-photo-gallery-with-zoom-show-a-large-primary-image-with-thumbnail-strip-below-it-when-a-user-clicks-the-primary-image-or-a-thumbnail-open-a-fullscreen-lightbox-zoom-overlay-showing-the-image-at-full-resolution-with-pinch-to-zoom-support-on-mobile-and-scroll-to-zoom-on-desktop-navigation-arrows-allow-browsing-through-all-product-photos-in-the-lightbox-the-lightbox-is-dismissible-via-a-close-button-or-pressing-escape",
+      "title": "Inside the product detail modal (REQ-42), implement a photo gallery with zoom. Show a large primary image with thumbnail strip below it. When a user clicks the primary image or a thumbnail, open a fullscreen lightbox/zoom overlay showing the image at full resolution with pinch-to-zoom support on mobile and scroll-to-zoom on desktop. Navigation arrows allow browsing through all product photos in the lightbox. The lightbox is dismissible via a close button or pressing Escape.",
+      "reqIds": [
+        "REQ-48"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-adminpage-product-creation-form-to-replace-or-supplement-the-photo-url-chips-input-with-a-file-input-that-allows-the-admin-to-select-photos-directly-from-their-device-gallery-when-files-are-selected-convert-them-to-data-urls-or-object-urls-and-add-them-to-the-photos-list-as-chips-same-tag-chip-pattern-as-existing-multi-photo-url-input-the-first-added-photo-remains-the-primary-thumbnail-all-photos-whether-from-file-upload-or-url-must-be-included-in-the-photos-array-sent-with-the-createproduct-mutation",
+      "title": "Update the AdminPage product creation form to replace (or supplement) the photo URL chips input with a file input that allows the admin to select photos directly from their device gallery. When files are selected, convert them to data URLs or object URLs and add them to the photos list as chips (same tag/chip pattern as existing multi-photo URL input). The first added photo remains the primary/thumbnail. All photos (whether from file upload or URL) must be included in the photos array sent with the createProduct mutation.",
+      "reqIds": [
+        "REQ-49"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-all-product-image-displays-across-the-site-productcard-tsx-photogallery-tsx-and-productdetailmodal-tsx-to-render-product-images-at-instagram-post-aspect-ratio-4-5-i-e-width-height-4-5-use-css-aspect-ratio-4-5-with-object-fit-cover-so-images-fill-the-container-without-distortion-the-thumbnail-strip-in-the-gallery-may-use-a-square-1-1-ratio-ensure-this-ratio-is-consistent-on-both-mobile-and-desktop",
+      "title": "Update all product image displays across the site — ProductCard.tsx, PhotoGallery.tsx, and ProductDetailModal.tsx — to render product images at Instagram post aspect ratio (4:5, i.e. width:height = 4:5). Use CSS aspect-ratio: 4/5 with object-fit: cover so images fill the container without distortion. The thumbnail strip in the gallery may use a square (1:1) ratio. Ensure this ratio is consistent on both mobile and desktop.",
+      "reqIds": [
+        "REQ-50"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-deleteproduct-mutation-hook-and-a-deleteallproducts-mutation-hook-to-usequeries-ts-each-hook-must-call-the-corresponding-backend-function-then-invalidate-the-products-query-cache-on-success-expose-these-hooks-for-use-in-adminpage",
+      "title": "Add a deleteProduct mutation hook and a deleteAllProducts mutation hook to useQueries.ts. Each hook must call the corresponding backend function, then invalidate the products query cache on success. Expose these hooks for use in AdminPage.",
+      "reqIds": [
+        "REQ-53"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-adminpage-tsx-add-a-delete-all-products-button-in-the-admin-panel-visible-only-to-authenticated-and-password-unlocked-admins-the-button-must-show-a-confirmation-dialog-prompt-before-proceeding-on-confirmation-call-the-deleteallproducts-mutation-and-display-a-success-or-error-toast-style-the-button-prominently-in-red-danger-style-consistent-with-the-existing-dark-jjk-theme",
+      "title": "In AdminPage.tsx, add a 'Delete All Products' button in the admin panel (visible only to authenticated and password-unlocked admins). The button must show a confirmation dialog/prompt before proceeding. On confirmation, call the deleteAllProducts mutation and display a success or error toast. Style the button prominently in red/danger style consistent with the existing dark JJK theme.",
+      "reqIds": [
+        "REQ-54"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-adminpage-tsx-display-the-list-of-existing-products-fetched-from-the-backend-each-product-entry-in-the-list-must-include-a-delete-button-clicking-the-delete-button-on-a-product-calls-the-deleteproduct-mutation-for-that-product-s-id-show-a-brief-inline-confirmation-e-g-a-confirm-dialog-or-double-tap-pattern-before-deleting-display-a-success-or-error-toast-after-the-operation-the-product-list-and-delete-buttons-are-only-visible-to-authenticated-and-password-unlocked-admins",
+      "title": "In AdminPage.tsx, display the list of existing products fetched from the backend. Each product entry in the list must include a 'Delete' button. Clicking the Delete button on a product calls the deleteProduct mutation for that product's ID. Show a brief inline confirmation (e.g. a confirm dialog or double-tap pattern) before deleting. Display a success or error toast after the operation. The product list and delete buttons are only visible to authenticated and password-unlocked admins.",
+      "reqIds": [
+        "REQ-55"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-all-product-image-displays-across-the-site-productcard-tsx-photogallery-tsx-and-productdetailmodal-tsx-to-render-product-images-at-a-square-1-1-aspect-ratio-use-css-aspect-ratio-1-1-with-object-fit-cover-so-images-fill-the-container-without-distortion-this-replaces-the-previously-applied-4-5-ratio-the-thumbnail-strip-in-photogallery-tsx-should-also-use-1-1-ensure-this-ratio-is-consistent-on-both-mobile-and-desktop",
+      "title": "Update all product image displays across the site — ProductCard.tsx, PhotoGallery.tsx, and ProductDetailModal.tsx — to render product images at a square 1:1 aspect ratio. Use CSS aspect-ratio: 1/1 with object-fit: cover so images fill the container without distortion. This replaces the previously applied 4:5 ratio. The thumbnail strip in PhotoGallery.tsx should also use 1:1. Ensure this ratio is consistent on both mobile and desktop.",
+      "reqIds": [
+        "REQ-56"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -309,6 +464,114 @@
     {
       "id": "AR-19",
       "summary": "Update 'DM on Instagram' pre-order buttons to directly open Instagram DM chat instead of just the profile page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Add password-based authentication to admin panel using password: Jujutsukaisenphantomparadehaha777",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Add size and color attributes to products so admin can specify available sizes/colors and customers can choose them on the product page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Add gender-based sections (Male and Female) to the products page so products can be categorized and browsed by gender",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Update the backend Product type to include optional fields: sizes (array of text, e.g. 'S', 'M', 'L', 'XL', 'XXL'), colors (array of text, e.g. 'Red', 'Blue', 'Black'), and gender (text: 'male', 'female', or 'unisex'). Update the createProduct function to accept these new fields. Ensure existing products without these fields remain valid (use defaults: empty arrays for sizes/colors, 'unisex' for gender).",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Apply cute anime waifu girly theme with animation when Female section is selected, and blue neon JJK cool theme when Male section is selected; default/all section stays unchanged",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Add product description field that admin can fill in; show description when user clicks/views a product (modal or detail view)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Add customer reviews and star ratings to products; reviews are public-facing and admin cannot edit them",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Support multiple photos per product; allow users to view and zoom into product images in a gallery/lightbox",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Add a 'description' field (text) to the Product type in the backend. Update createProduct to accept and store the description. Update the migration module so existing products without a description default to an empty string.",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-33",
+      "summary": "Add a reviews and ratings data model to the backend. Create a Review type with fields: id (Nat), productId (Nat), reviewerName (Text), rating (Nat, 1–5), comment (Text), and createdAt (Int). Implement backend functions: addReview(productId, reviewerName, rating, comment) and getReviewsByProduct(productId). Reviews are immutable once created (no update or delete function).",
+      "reqIds": [
+        "REQ-43"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-35",
+      "summary": "Update the Product type in the backend to store multiple photo URLs as an array (e.g. photos: [Text]). Update createProduct to accept a photos array. Update migration so existing products with a single imageUrl have that URL moved into the photos array (maintaining backward compatibility). The existing imageUrl field can remain as the primary display image (first element of photos) or be unified into the photos array.",
+      "reqIds": [
+        "REQ-45"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-36",
+      "summary": "Allow admin to upload photos directly from device gallery (file input) instead of only URL input; display product images at Instagram post aspect ratio (4:5 or 1:1)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-37",
+      "summary": "Add delete product (individual) and delete all products options in the admin panel, accessible only to authenticated admin",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-38",
+      "summary": "Add a deleteProduct(id: Nat) backend function to the main actor that removes a single product by ID from stable storage. The function must be restricted to authenticated admin callers only (using the existing role-based access control pattern). Return a success/failure result.",
+      "reqIds": [
+        "REQ-51"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-39",
+      "summary": "Add a deleteAllProducts() backend function to the main actor that clears all products from stable storage in a single call. The function must be restricted to authenticated admin callers only (using the existing role-based access control pattern). Return a success/failure result.",
+      "reqIds": [
+        "REQ-52"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-40",
+      "summary": "Change all product image displays to use square 1:1 aspect ratio instead of Instagram 4:5 ratio",
       "reqIds": [],
       "status": "pending"
     }

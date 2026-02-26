@@ -7,21 +7,34 @@ export interface None {
     __kind__: "None";
 }
 export type Option<T> = Some<T> | None;
-export class ExternalBlob {
-    getBytes(): Promise<Uint8Array<ArrayBuffer>>;
-    getDirectURL(): string;
-    static fromURL(url: string): ExternalBlob;
-    static fromBytes(blob: Uint8Array<ArrayBuffer>): ExternalBlob;
-    withUploadProgress(onProgress: (percentage: number) => void): ExternalBlob;
-}
-export type Time = bigint;
 export interface Product {
     id: string;
     name: string;
-    createdAt: Time;
+    createdAt: bigint;
+    description: string;
+    sizes: Array<string>;
+    imageUrl: string;
+    gender: Gender;
     category: ProductCategory;
-    image: ExternalBlob;
+    colors: Array<string>;
     price: bigint;
+    photos: Array<string>;
+}
+export interface UserProfile {
+    name: string;
+}
+export interface Review {
+    id: bigint;
+    createdAt: bigint;
+    productId: bigint;
+    reviewerName: string;
+    comment: string;
+    rating: bigint;
+}
+export enum Gender {
+    female = "female",
+    male = "male",
+    unisex = "unisex"
 }
 export enum ProductCategory {
     others = "others",
@@ -30,9 +43,24 @@ export enum ProductCategory {
     keychain = "keychain",
     poster = "poster"
 }
+export enum UserRole {
+    admin = "admin",
+    user = "user",
+    guest = "guest"
+}
 export interface backendInterface {
-    createProduct(id: string, name: string, category: ProductCategory, price: bigint, image: ExternalBlob): Promise<Product>;
+    addReview(productId: bigint, reviewerName: string, rating: bigint, comment: string): Promise<Review>;
+    assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    createProduct(id: string, name: string, description: string, category: ProductCategory, price: bigint, photos: Array<string>, imageUrl: string, sizes: Array<string>, colors: Array<string>, gender: Gender): Promise<Product>;
+    deleteAllProducts(): Promise<void>;
+    deleteProduct(id: string): Promise<boolean>;
     getAllProducts(): Promise<Array<Product>>;
+    getCallerUserProfile(): Promise<UserProfile | null>;
+    getCallerUserRole(): Promise<UserRole>;
     getProduct(id: string): Promise<Product | null>;
     getProductsByCategory(category: ProductCategory): Promise<Array<Product>>;
+    getReviewsByProduct(productId: bigint): Promise<Array<Review>>;
+    getUserProfile(user: Principal): Promise<UserProfile | null>;
+    isCallerAdmin(): Promise<boolean>;
+    saveCallerUserProfile(profile: UserProfile): Promise<void>;
 }

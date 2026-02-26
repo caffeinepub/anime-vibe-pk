@@ -10,21 +10,39 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
-export type ExternalBlob = Uint8Array;
+export type Gender = { 'female' : null } |
+  { 'male' : null } |
+  { 'unisex' : null };
 export interface Product {
   'id' : string,
   'name' : string,
-  'createdAt' : Time,
+  'createdAt' : bigint,
+  'description' : string,
+  'sizes' : Array<string>,
+  'imageUrl' : string,
+  'gender' : Gender,
   'category' : ProductCategory,
-  'image' : ExternalBlob,
+  'colors' : Array<string>,
   'price' : bigint,
+  'photos' : Array<string>,
 }
 export type ProductCategory = { 'others' : null } |
   { 'sticker' : null } |
   { 'pouch' : null } |
   { 'keychain' : null } |
   { 'poster' : null };
-export type Time = bigint;
+export interface Review {
+  'id' : bigint,
+  'createdAt' : bigint,
+  'productId' : bigint,
+  'reviewerName' : string,
+  'comment' : string,
+  'rating' : bigint,
+}
+export interface UserProfile { 'name' : string }
+export type UserRole = { 'admin' : null } |
+  { 'user' : null } |
+  { 'guest' : null };
 export interface _CaffeineStorageCreateCertificateResult {
   'method' : string,
   'blob_hash' : string,
@@ -52,13 +70,35 @@ export interface _SERVICE {
     _CaffeineStorageRefillResult
   >,
   '_caffeineStorageUpdateGatewayPrincipals' : ActorMethod<[], undefined>,
+  '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
+  'addReview' : ActorMethod<[bigint, string, bigint, string], Review>,
+  'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
   'createProduct' : ActorMethod<
-    [string, string, ProductCategory, bigint, ExternalBlob],
+    [
+      string,
+      string,
+      string,
+      ProductCategory,
+      bigint,
+      Array<string>,
+      string,
+      Array<string>,
+      Array<string>,
+      Gender,
+    ],
     Product
   >,
+  'deleteAllProducts' : ActorMethod<[], undefined>,
+  'deleteProduct' : ActorMethod<[string], boolean>,
   'getAllProducts' : ActorMethod<[], Array<Product>>,
+  'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
+  'getCallerUserRole' : ActorMethod<[], UserRole>,
   'getProduct' : ActorMethod<[string], [] | [Product]>,
   'getProductsByCategory' : ActorMethod<[ProductCategory], Array<Product>>,
+  'getReviewsByProduct' : ActorMethod<[bigint], Array<Review>>,
+  'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
+  'isCallerAdmin' : ActorMethod<[], boolean>,
+  'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,
 }
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];

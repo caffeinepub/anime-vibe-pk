@@ -1,36 +1,40 @@
 {
   "kind": "build_request",
-  "title": "Update pre-order button to open Instagram DM directly",
+  "title": "Change all product image displays to square 1:1 aspect ratio",
   "projectName": "Anime Vibe PK",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-31",
-      "text": "Update the 'Pre-Order Now → DM on Instagram' button in ProductCard.tsx to link directly to the Instagram DM conversation for anime_vibe_pk using the URL https://ig.me/m/anime_vibe_pk instead of the profile page, so tapping the button instantly opens the DM chat.",
+      "id": "REQ-56",
+      "text": "Update all product image displays across the site — ProductCard.tsx, PhotoGallery.tsx, and ProductDetailModal.tsx — to render product images at a square 1:1 aspect ratio. Use CSS aspect-ratio: 1/1 with object-fit: cover so images fill the container without distortion. This replaces the previously applied 4:5 ratio. The thumbnail strip in PhotoGallery.tsx should also use 1:1. Ensure this ratio is consistent on both mobile and desktop.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-8"
+          "msg-last"
         ],
         "quotes": [
-          "Make it so when Dm Me To Order it instantly takes you to dm"
+          "Make the photo ratio only 1 1:"
         ]
       },
       "acceptanceCriteria": [
-        "Clicking the pre-order button on any product card opens https://ig.me/m/anime_vibe_pk in a new tab",
-        "The button label remains 'Pre-Order Now → DM on Instagram' or equivalent",
-        "The link opens Instagram DM directly rather than the profile page"
+        "ProductCard.tsx renders product images with aspect-ratio: 1/1 and object-fit: cover",
+        "PhotoGallery.tsx renders the primary large image with aspect-ratio: 1/1 and object-fit: cover",
+        "PhotoGallery.tsx thumbnail strip images use aspect-ratio: 1/1 and object-fit: cover",
+        "ProductDetailModal.tsx renders product images with aspect-ratio: 1/1 and object-fit: cover",
+        "No product image container uses the old 4:5 ratio anywhere on the site",
+        "Images fill their containers without distortion on both mobile and desktop"
       ]
     }
   ],
   "constraints": [
-    "Do not change the button label or visual styling",
-    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui"
+    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui",
+    "Only change the aspect ratio — do not alter any other image styling, layout, or functionality"
   ],
   "nonGoals": [
-    "Changing any other navigation or link behavior on the site",
-    "Adding new product fields or backend changes",
-    "Modifying the admin panel"
+    "Changing backend logic or data models",
+    "Altering image upload or URL input behavior in AdminPage",
+    "Modifying the lightbox zoom behavior in PhotoLightbox.tsx",
+    "Changing any non-image styling or layout"
   ],
   "imageRequirements": {
     "required": [],

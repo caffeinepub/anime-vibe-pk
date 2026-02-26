@@ -2,9 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-pre-order-now-dm-on-instagram-button-in-productcard-tsx-to-link-directly-to-the-instagram-dm-conversation-for-anime-vibe-pk-using-the-url-https-ig-me-m-anime-vibe-pk-instead-of-the-profile-page-so-tapping-the-button-instantly-opens-the-dm-chat",
-      "featureTitle": "Update the 'Pre-Order Now → DM on Instagram' button in ProductCard.tsx to link directly to the Instagram DM conversation for anime_vibe_pk using the URL https://ig.me/m/anime_vibe_pk instead of the profile page, so tapping the button instantly opens the DM chat.",
+      "featureId": "feature-update-all-product-image-displays-across-the-site-productcard-tsx-photogallery-tsx-and-productdetailmodal-tsx-to-render-product-images-at-a-square-1-1-aspect-ratio-use-css-aspect-ratio-1-1-with-object-fit-cover-so-images-fill-the-container-without-distortion-this-replaces-the-previously-applied-4-5-ratio-the-thumbnail-strip-in-photogallery-tsx-should-also-use-1-1-ensure-this-ratio-is-consistent-on-both-mobile-and-desktop",
+      "featureTitle": "Update all product image displays across the site — ProductCard.tsx, PhotoGallery.tsx, and ProductDetailModal.tsx — to render product images at a square 1:1 aspect ratio. Use CSS aspect-ratio: 1/1 with object-fit: cover so images fill the container without distortion. This replaces the previously applied 4:5 ratio. The thumbnail strip in PhotoGallery.tsx should also use 1:1. Ensure this ratio is consistent on both mobile and desktop.",
       "files": [
+        "frontend/src/components/PhotoGallery.tsx",
         "frontend/src/components/ProductCard.tsx"
       ],
       "components": [
@@ -13,10 +14,11 @@
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
         "github-export-icp-cli@1.0.0",
-        "blob-storage@4.0.0"
+        "blob-storage@4.0.0",
+        "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-31"
+        "REQ-56"
       ],
       "confidence": "high"
     }

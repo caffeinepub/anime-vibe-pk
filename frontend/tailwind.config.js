@@ -67,7 +67,10 @@ export default {
                     ring: 'oklch(var(--sidebar-ring))'
                 },
                 'neon-blue': 'oklch(var(--neon-blue))',
-                'neon-blue-bright': 'oklch(var(--neon-blue-bright))'
+                'neon-blue-bright': 'oklch(var(--neon-blue-bright))',
+                'waifu-pink': 'oklch(var(--waifu-pink))',
+                'waifu-pink-bright': 'oklch(var(--waifu-pink-bright))',
+                'waifu-purple': 'oklch(var(--waifu-purple))'
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -78,7 +81,8 @@ export default {
                 xs: '0 1px 2px 0 rgba(0,0,0,0.05)'
             },
             fontFamily: {
-                sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif']
+                sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+                waifu: ['Nunito', 'Pacifico', 'cursive', 'sans-serif']
             },
             keyframes: {
                 'accordion-down': {
@@ -88,11 +92,32 @@ export default {
                 'accordion-up': {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: '0' }
+                },
+                'sakura-fall': {
+                    '0%': { transform: 'translateY(-60px) rotate(0deg) scale(1)', opacity: '0' },
+                    '10%': { opacity: '1' },
+                    '80%': { opacity: '0.8' },
+                    '100%': { transform: 'translateY(110vh) rotate(720deg) scale(0.6)', opacity: '0' }
+                },
+                'bounce-gentle': {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-6px)' }
+                },
+                'pulse-glow-pink': {
+                    '0%, 100%': {
+                        textShadow: '0 0 10px rgba(236,72,153,0.8), 0 0 20px rgba(236,72,153,0.5)'
+                    },
+                    '50%': {
+                        textShadow: '0 0 20px rgba(236,72,153,1), 0 0 40px rgba(236,72,153,0.7), 0 0 60px rgba(168,85,247,0.4)'
+                    }
                 }
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
-                'accordion-up': 'accordion-up 0.2s ease-out'
+                'accordion-up': 'accordion-up 0.2s ease-out',
+                'sakura-fall': 'sakura-fall linear forwards',
+                'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
+                'pulse-glow-pink': 'pulse-glow-pink 2s ease-in-out infinite'
             }
         }
     },

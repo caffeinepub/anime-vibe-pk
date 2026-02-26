@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-24T10:40:47.310Z",
+  "generatedAt": "2026-02-26T07:43:43.388Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,24 +11,27 @@
     "implemented": 1,
     "items": [
       {
-        "id": "REQ-31",
-        "summary": "Update the 'Pre-Order Now → DM on Instagram' button in ProductCard.tsx to link directly to the Instagram DM conversation for anime_vibe_pk using the URL https://ig.me/m/anime_vibe_pk instead of the profile page, so tapping the button instantly opens the DM chat.",
+        "id": "REQ-56",
+        "summary": "Update all product image displays across the site — ProductCard.tsx, PhotoGallery.tsx, and ProductDetailModal.tsx — to render product images at a square 1:1 aspect ratio. Use CSS aspect-ratio: 1/1 with object-fit: cover so images fill the container without distortion. This replaces the previously applied 4:5 ratio. The thumbnail strip in PhotoGallery.tsx should also use 1:1. Ensure this ratio is consistent on both mobile and desktop.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/ProductCard.tsx"
+          "frontend/src/components/ProductCard.tsx",
+          "frontend/src/components/PhotoGallery.tsx",
+          "frontend/src/components/ProductDetailModal.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/ProductCard.tsx"
+          "frontend/src/components/ProductCard.tsx",
+          "frontend/src/components/PhotoGallery.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/src/components/PhotoGallery.tsx",
     "frontend/src/components/ProductCard.tsx",
     "project_state.json",
     "scratch/component-selection.json",
